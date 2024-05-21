@@ -22,14 +22,14 @@ This Bash script automates the process of replacing Zabbix Agent 1 with Zabbix A
 1. **Download the script** from your GitHub repository and make it executable:
 
    ```bash
-   wget https://raw.githubusercontent.com/svds12343/zabbixagent-replace/main/replace_zabbix_agent.sh
-   chmod +x replace_zabbix_agent.sh
+   wget https://raw.githubusercontent.com/svds12343/zabbixagent-replace/main/zabbixagentreplace.sh
+   chmod +x zabbixagentreplace.sh
    ```
 
 2. **Run the script** using `sudo`:
 
    ```bash
-   sudo ./replace_zabbix_agent.sh
+   sudo ./zabbixagentreplace.sh
    ```
 
 3. **Follow the prompts** to enter the Zabbix Server IP and the hostname for the Zabbix Agent.
