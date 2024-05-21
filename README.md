@@ -19,13 +19,15 @@ This Bash script automates the process of replacing Zabbix Agent 1 with Zabbix A
 
 ## Usage
 
-1. **Download the script** and make it executable:
+1. **Download the script** from your GitHub repository and make it executable:
 
- wget https://raw.githubusercontent.com/svds12343/zabbixagent-replace/main/replace_zabbix_agent.sh
-chmod +x replace_zabbix_agent.sh
-
+   ```bash
+   wget https://raw.githubusercontent.com/svds12343/zabbixagent-replace/main/replace_zabbix_agent.sh
+   chmod +x replace_zabbix_agent.sh
+   ```
 
 2. **Run the script** using `sudo`:
+
    ```bash
    sudo ./replace_zabbix_agent.sh
    ```
@@ -38,22 +40,18 @@ chmod +x replace_zabbix_agent.sh
 
 ## Detailed Steps
 
-1. **Check for root privileges**: Stops if the script is not running as root.
-2. **Check and install dependencies**: Installs `wget`, `dpkg`, `apt`, and `systemctl` if they are missing.
+1. **Check for root privileges**: The script checks if it is run as root and stops if it isn't.
+2. **Check and install dependencies**: The script installs `wget`, `dpkg`, `apt`, and `systemctl` if they are missing.
 3. **Replace Zabbix Agent 1 with Zabbix Agent 2**:
-   - Stops and removes Zabbix Agent 1.
-   - Backs up the configuration file of Zabbix Agent 1.
+   - Stops and removes Zabbix Agent 1, if installed.
+   - Backs up the configuration file of Zabbix Agent 1 to `/etc/zabbix/zabbix_agentd.conf.bak`.
    - Installs Zabbix Agent 2.
    - Configures Zabbix Agent 2 with the server IP and hostname provided by the user.
    - Starts Zabbix Agent 2 and enables it to start at boot.
 4. **Handle cases where Zabbix Agent 1 is not installed**:
-   - Installs and configures Zabbix Agent 2 if it is not already installed.
+   - Directly installs and configures Zabbix Agent 2 if neither agent is initially present.
 
 ## Troubleshooting
 
 - Check the log file at `/var/log/replace_zabbix_agent.log` for detailed error messages.
 - Ensure you have network connectivity and access to Zabbix repositories.
-
----
-
-**Replace `[URL to this script]`** with the actual URL where your script is hosted, if you are distributing it via a download link.
